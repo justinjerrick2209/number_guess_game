@@ -31,8 +31,12 @@ if st.button("Start Game"):
     st.session_state.count = 0
     st.session_state.won = False
 
+
+
 if st.session_state.started:
     st.write(f"Guess a number between **1 and {max_num}**")
+
+    st.markdown("The bot has picked a number at random in the given range, now it's your time to guess the number!😉")
 
     guess = st.number_input(
         "Enter your guess",
@@ -45,10 +49,10 @@ if st.session_state.started:
         st.session_state.count += 1
 
         if guess < st.session_state.num:
-            st.warning("⬆️ Number is higher!")
+            st.warning("U guessed a lower number, take a higher guess!")
 
         elif guess > st.session_state.num:
-            st.warning("⬇️ Number is lower!")
+            st.warning("U guessed a higher numner, take a lower guess")
 
         else:
             st.success("🎉 Congratulations! You guessed it right!")
@@ -67,5 +71,6 @@ if st.session_state.started:
         st.session_state.count = 0
         st.session_state.won = False
         st.rerun()
+
 
 
